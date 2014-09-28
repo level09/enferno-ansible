@@ -1,0 +1,4 @@
+---
+- name: restart enferno
+  service: name=enferno state=restarted
+  sudo_user: root

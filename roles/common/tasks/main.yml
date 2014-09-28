@@ -1,0 +1,31 @@
+---
+- name: Install Essential Packages and Libs
+  apt: pkg={{ item }} state=latest update_cache=true
+  with_items:
+    - build-essential
+    - python-dev
+    - python-setuptools
+    - git
+    - nginx
+    - mongodb
+    - redis-server
+
+- name: Install Python Packages
+  easy_install: name={{ item }}
+  with_items:
+    - pip
+    - virtualenv
+
+- name: Add a group for the user
+  group: name={{user_name}} state=present
+
+- name: Create a user called {{user_name}}
+  user: name={{user_name}} shell=/bin/bash password={{password}} state=present groups="sudo,{{user_name}}"
+
+- name: Copy nginx configuratinon to production based on provided hostname
+  template: src=default.conf dest=/etc/nginx/sites-enabled/{{server_hostname}}
+  notify: restart nginx 
+
+
+- name: Create updstart service for gunicorn enferno service
+  template: src=enferno.conf dest=/etc/init/  

@@ -1,0 +1,20 @@
+---
+- name: Clone Enferno Repository
+  git: repo=http://github.com/level09/enferno.git dest=/home/{{user_name}}/{{server_hostname}} accept_hostkey=True
+
+
+- name: Install Requirements
+  pip: requirements=/home/{{user_name}}/{{server_hostname}}/requirements.txt virtualenv=/home/{{user_name}}/{{server_hostname}}/env/
+
+
+- name: Prepare directory for gunicorn executable
+  file: state=directory path=/home/{{user_name}}/bin
+
+- name: Setup Greenunicorn configuratinon 
+  template: src=enferno.sh dest=/home/{{user_name}}/bin/
+  
+- name: Make gunicorn service executable
+  file: path=/home/{{user_name}}/bin/enferno.sh state=touch mode='0771'
+  notify: restart enferno
+
+

@@ -1,0 +1,8 @@
+---
+#hostname
+server_hostname: domain.com 
+#user of the server
+user_name: enferno 
+#Password for the server user, currently: enferno
+password: KJqBrYZ4Hvqdk
+#project root will be  /home/{{user_name}}/{{server_hostname}} by convention 

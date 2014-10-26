@@ -24,8 +24,18 @@
 
 - name: Copy nginx configuratinon to production based on provided hostname
   template: src=default.conf dest=/etc/nginx/sites-enabled/{{server_hostname}}
-  notify: restart nginx 
+  notify: restart nginx
+  tags:
+    - nginx
 
 
 - name: Create updstart service for gunicorn enferno service
-  template: src=enferno.conf dest=/etc/init/  
+  template: src=enferno.conf dest=/etc/init/
+  tags:
+    - pyserver
+
+
+- name: Create celery service
+  template: src=clry.conf dest=/etc/init/
+  tags:
+    - celery

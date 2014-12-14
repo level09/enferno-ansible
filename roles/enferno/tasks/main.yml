@@ -1,6 +1,6 @@
 ---
 - name: Clone Enferno Repository
-  git: repo=http://github.com/level09/enferno.git dest=/home/{{user_name}}/{{server_hostname}} accept_hostkey=True
+  git: repo={{git_repo}} dest=/home/{{user_name}}/{{server_hostname}} accept_hostkey=True
 
 
 - name: Install Requirements

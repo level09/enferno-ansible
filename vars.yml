@@ -7,5 +7,6 @@ user_name: nidal
 password: KJqBrYZ4Hvqdk
 #project root will be  /home/{{user_name}}/{{server_hostname}} by convention 
 
+enferno_port: 5000
 #put your enferno App git repository here
 git_repo: http://github.com/level09/enferno.git

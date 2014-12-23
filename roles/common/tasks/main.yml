@@ -4,6 +4,8 @@
   with_items:
     - build-essential
     - python-dev
+    - libjpeg8-dev
+    - libzip-dev
     - python-setuptools
     - git
     - nginx

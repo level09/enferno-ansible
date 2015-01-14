@@ -6,6 +6,8 @@
     - python-dev
     - libjpeg8-dev
     - libzip-dev
+    - libxml2-dev
+    - libxslt1-dev
     - python-setuptools
     - git
     - nginx

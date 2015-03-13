@@ -1,7 +1,13 @@
 Deploy your Enferno App with this simple Ansible script
 =======================================================
 
-Example on how to use ansible to deploy simple project with git 
+Example on how to use ansible to deploy project enferno on Ubuntu server
+
+it is recommended that you have ansible installed globally on you local machine: 
+
+```
+sudo pip install ansible
+```
 
 Edit hosts and vars.yml to suit your needs, then run the playbook using: 
 
